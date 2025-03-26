@@ -1,0 +1,44 @@
+import React from 'react';
+
+const Avatar = ({ src }) => (
+  <img src={src} alt="avatar" style={{ borderRadius: "50%", width: "100px", height: "100px" }} />
+);
+
+const UserInfo = ({ name, email, bio }) => (
+  <div>
+    <h3>{name}</h3>
+    <p>{email}</p>
+    <p>{bio}</p>
+  </div>
+);
+
+const ProfileCard = ({ user }) => (
+  <div style={{ 
+    border: "1px solid #ccc", 
+    borderRadius: "10px", 
+    padding: "20px", 
+    maxWidth: "300px", 
+    textAlign: "center", 
+    fontFamily: "Arial, sans-serif" 
+  }}>
+    <Avatar src={user.avatar} />
+    <UserInfo name={user.name} email={user.email} bio={user.bio} />
+  </div>
+);
+
+const App = () => {
+  const user = {
+    avatar: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.q4DcIgJIpUQMpkELjP51KAHaE7%26pid%3DApi&f=1&ipt=b37c22a9ff797df6d1d09da9d04e4d80330aae8241aafcaf2a6746a0995c6b71&ipo=images",
+    name: "Vasandhan.M.J",
+    email: "mjvasandhan18@gmail.com",
+    bio: "Infosys, CBE"
+  };
+
+  return (
+    <div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
+      <ProfileCard user={user} />
+    </div>
+  );
+};
+
+export default App;
